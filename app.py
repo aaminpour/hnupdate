@@ -13,7 +13,6 @@ import subprocess
 import simplejson as json
 import urllib2
 import urllib
-from pprint import pprint
 
 emailAddress = '' #Enter your email address here
 emailPassword = '' #Enter your password here
@@ -57,7 +56,6 @@ def sendMail(subject, text, *attachmentFilePaths):
     mailServer.close()
 
 data = json.load(urllib.urlopen("http://api.ihackernews.com/page"))
-pprint(data)
 items = list()
 for item in data['items']:
     story = Story(id=item['id'], url=item['url'], title=item['title'], postedBy=item['postedBy'], postedAgo=item['postedAgo'])
